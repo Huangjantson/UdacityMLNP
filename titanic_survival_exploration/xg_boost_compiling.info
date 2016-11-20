@@ -1,0 +1,146 @@
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/common/common.o src/common/common.cc >build/common/common.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/learner.o src/learner.cc >build/learner.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/c_api/c_api_error.o src/c_api/c_api_error.cc >build/c_api/c_api_error.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/logging.o src/logging.cc >build/logging.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/c_api/c_api_error.cc -o build/c_api/c_api_error.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/common/common.cc -o build/common/common.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/logging.cc -o build/logging.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/learner.cc -o build/learner.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/c_api/c_api.o src/c_api/c_api.cc >build/c_api/c_api.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/c_api/c_api.cc -o build/c_api/c_api.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/data/simple_dmatrix.o src/data/simple_dmatrix.cc >build/data/simple_dmatrix.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/data/simple_dmatrix.cc -o build/data/simple_dmatrix.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/data/sparse_page_raw_format.o src/data/sparse_page_raw_format.cc >build/data/sparse_page_raw_format.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/data/sparse_page_raw_format.cc -o build/data/sparse_page_raw_format.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/data/data.o src/data/data.cc >build/data/data.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/data/data.cc -o build/data/data.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/data/simple_csr_source.o src/data/simple_csr_source.cc >build/data/simple_csr_source.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/data/simple_csr_source.cc -o build/data/simple_csr_source.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/data/sparse_page_writer.o src/data/sparse_page_writer.cc >build/data/sparse_page_writer.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/data/sparse_page_source.o src/data/sparse_page_source.cc >build/data/sparse_page_source.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/data/sparse_page_writer.cc -o build/data/sparse_page_writer.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/data/sparse_page_source.cc -o build/data/sparse_page_source.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/data/sparse_page_dmatrix.o src/data/sparse_page_dmatrix.cc >build/data/sparse_page_dmatrix.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/data/sparse_page_dmatrix.cc -o build/data/sparse_page_dmatrix.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/gbm/gbm.o src/gbm/gbm.cc >build/gbm/gbm.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/gbm/gblinear.o src/gbm/gblinear.cc >build/gbm/gblinear.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/gbm/gbm.cc -o build/gbm/gbm.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/gbm/gblinear.cc -o build/gbm/gblinear.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/gbm/gbtree.o src/gbm/gbtree.cc >build/gbm/gbtree.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/gbm/gbtree.cc -o build/gbm/gbtree.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/metric/multiclass_metric.o src/metric/multiclass_metric.cc >build/metric/multiclass_metric.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/metric/multiclass_metric.cc -o build/metric/multiclass_metric.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/metric/elementwise_metric.o src/metric/elementwise_metric.cc >build/metric/elementwise_metric.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/metric/elementwise_metric.cc -o build/metric/elementwise_metric.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/metric/rank_metric.o src/metric/rank_metric.cc >build/metric/rank_metric.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/metric/rank_metric.cc -o build/metric/rank_metric.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/metric/metric.o src/metric/metric.cc >build/metric/metric.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/objective/regression_obj.o src/objective/regression_obj.cc >build/objective/regression_obj.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/metric/metric.cc -o build/metric/metric.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/objective/regression_obj.cc -o build/objective/regression_obj.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/objective/objective.o src/objective/objective.cc >build/objective/objective.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/objective/rank_obj.o src/objective/rank_obj.cc >build/objective/rank_obj.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/objective/rank_obj.cc -o build/objective/rank_obj.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/objective/objective.cc -o build/objective/objective.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/objective/multiclass_obj.o src/objective/multiclass_obj.cc >build/objective/multiclass_obj.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/objective/multiclass_obj.cc -o build/objective/multiclass_obj.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/tree_model.o src/tree/tree_model.cc >build/tree/tree_model.d
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/updater_colmaker.o src/tree/updater_colmaker.cc >build/tree/updater_colmaker.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/tree_model.cc -o build/tree/tree_model.o
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/updater_colmaker.cc -o build/tree/updater_colmaker.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/updater_skmaker.o src/tree/updater_skmaker.cc >build/tree/updater_skmaker.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/updater_skmaker.cc -o build/tree/updater_skmaker.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/updater_sync.o src/tree/updater_sync.cc >build/tree/updater_sync.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/updater_sync.cc -o build/tree/updater_sync.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/updater_refresh.o src/tree/updater_refresh.cc >build/tree/updater_refresh.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/updater_refresh.cc -o build/tree/updater_refresh.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/updater_histmaker.o src/tree/updater_histmaker.cc >build/tree/updater_histmaker.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/updater_histmaker.cc -o build/tree/updater_histmaker.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/tree_updater.o src/tree/tree_updater.cc >build/tree/tree_updater.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/tree_updater.cc -o build/tree/tree_updater.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/tree/updater_prune.o src/tree/updater_prune.cc >build/tree/updater_prune.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/tree/updater_prune.cc -o build/tree/updater_prune.o
+cd dmlc-core; C:/TDM-GCC-64/bin/mingw32-make libdmlc.a config=D:/self/git_clone_bank/xgboost/config.mk; cd D:/self/git_clone_bank/xgboost
+mingw32-make[1]: Entering directory 'D:/self/git_clone_bank/xgboost/dmlc-core'
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o line_split.o src/io/line_split.cc
+src/io/line_split.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o recordio_split.o src/io/recordio_split.cc
+src/io/recordio_split.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+cd rabit; C:/TDM-GCC-64/bin/mingw32-make lib/librabit_empty.a; cd D:/self/git_clone_bank/xgboost
+mingw32-make[1]: Entering directory 'D:/self/git_clone_bank/xgboost/rabit'
+g++ -m64 -c -O3 -msse2 -Wall -Wextra -Wno-unused-parameter -Wno-unknown-pragmas -std=c++0x -fPIC -o engine_empty.o src/engine_empty.cc
+src/engine_empty.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ /*!
+ ^
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o input_split_base.o src/io/input_split_base.cc
+g++ -m64 -c -O3 -msse2 -Wall -Wextra -Wno-unused-parameter -Wno-unknown-pragmas -std=c++0x -fPIC -o c_api.o src/c_api.cc
+src/io/input_split_base.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+src/c_api.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o io.o src/io.cc
+src/io.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+ar cr lib/librabit_empty.a engine_empty.o c_api.o
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o local_filesys.o src/io/local_filesys.cc
+src/io/local_filesys.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+mingw32-make[1]: Leaving directory 'D:/self/git_clone_bank/xgboost/rabit'
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o data.o src/data.cc
+src/data.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -MM -MT build/cli_main.o src/cli_main.cc >build/cli_main.d
+g++ -m64 -c -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp src/cli_main.cc -o build/cli_main.o
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o recordio.o src/recordio.cc
+src/recordio.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ // Copyright by Contributors
+ ^
+g++ -m64 -c -O3 -Wall -Wno-unknown-pragmas -Iinclude  -std=c++0x -DDMLC_ENABLE_STD_THREAD=0 -fopenmp -fPIC -DDMLC_USE_HDFS=0 -DDMLC_USE_S3=0 -DDMLC_USE_AZURE=0 -msse2 -o config.o src/config.cc
+src/config.cc:1:0: warning: -fPIC ignored for target (all code is position independent)
+ /*!
+ ^
+ar cr libdmlc.a line_split.o recordio_split.o input_split_base.o io.o local_filesys.o data.o recordio.o config.o
+mingw32-make[1]: Leaving directory 'D:/self/git_clone_bank/xgboost/dmlc-core'
+ar crv lib/libxgboost.a build/learner.o build/logging.o build/common/common.o build/c_api/c_api_error.o build/c_api/c_api.o build/data/simple_dmatrix.o build/data/sparse_page_raw_format.o build/data/data.o build/data/simple_csr_source.o build/data/sparse_page_writer.o build/data/sparse_page_source.o build/data/sparse_page_dmatrix.o build/gbm/gbm.o build/gbm/gblinear.o build/gbm/gbtree.o build/metric/multiclass_metric.o build/metric/elementwise_metric.o build/metric/rank_metric.o build/metric/metric.o build/objective/regression_obj.o build/objective/rank_obj.o build/objective/objective.o build/objective/multiclass_obj.o build/tree/tree_model.o build/tree/updater_colmaker.o build/tree/updater_skmaker.o build/tree/updater_sync.o build/tree/updater_refresh.o build/tree/updater_histmaker.o build/tree/tree_updater.o build/tree/updater_prune.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -shared -o lib/libxgboost.dll build/learner.o build/logging.o build/common/common.o build/c_api/c_api_error.o build/c_api/c_api.o build/data/simple_dmatrix.o build/data/sparse_page_raw_format.o build/data/data.o build/data/simple_csr_source.o build/data/sparse_page_writer.o build/data/sparse_page_source.o build/data/sparse_page_dmatrix.o build/gbm/gbm.o build/gbm/gblinear.o build/gbm/gbtree.o build/metric/multiclass_metric.o build/metric/elementwise_metric.o build/metric/rank_metric.o build/metric/metric.o build/objective/regression_obj.o build/objective/rank_obj.o build/objective/objective.o build/objective/multiclass_obj.o build/tree/tree_model.o build/tree/updater_colmaker.o build/tree/updater_skmaker.o build/tree/updater_sync.o build/tree/updater_refresh.o build/tree/updater_histmaker.o build/tree/tree_updater.o build/tree/updater_prune.o dmlc-core/libdmlc.a rabit/lib/librabit_empty.a -pthread -lm  -fopenmp
+a - build/learner.o
+a - build/logging.o
+a - build/common/common.o
+a - build/c_api/c_api_error.o
+a - build/c_api/c_api.o
+a - build/data/simple_dmatrix.o
+a - build/data/sparse_page_raw_format.o
+a - build/data/data.o
+a - build/data/simple_csr_source.o
+a - build/data/sparse_page_writer.o
+a - build/data/sparse_page_source.o
+a - build/data/sparse_page_dmatrix.o
+a - build/gbm/gbm.o
+a - build/gbm/gblinear.o
+a - build/gbm/gbtree.o
+a - build/metric/multiclass_metric.o
+a - build/metric/elementwise_metric.o
+a - build/metric/rank_metric.o
+a - build/metric/metric.o
+a - build/objective/regression_obj.o
+a - build/objective/rank_obj.o
+a - build/objective/objective.o
+a - build/objective/multiclass_obj.o
+a - build/tree/tree_model.o
+a - build/tree/updater_colmaker.o
+a - build/tree/updater_skmaker.o
+a - build/tree/updater_sync.o
+a - build/tree/updater_refresh.o
+a - build/tree/updater_histmaker.o
+a - build/tree/tree_updater.o
+a - build/tree/updater_prune.o
+g++ -m64 -std=c++0x -Wall -O3 -msse2  -Wno-unknown-pragmas -funroll-loops -Iinclude -DDMLC_ENABLE_STD_THREAD=0  -Idmlc-core/include -Irabit/include -fopenmp -o xgboost  build/cli_main.o build/learner.o build/logging.o build/common/common.o build/c_api/c_api_error.o build/c_api/c_api.o build/data/simple_dmatrix.o build/data/sparse_page_raw_format.o build/data/data.o build/data/simple_csr_source.o build/data/sparse_page_writer.o build/data/sparse_page_source.o build/data/sparse_page_dmatrix.o build/gbm/gbm.o build/gbm/gblinear.o build/gbm/gbtree.o build/metric/multiclass_metric.o build/metric/elementwise_metric.o build/metric/rank_metric.o build/metric/metric.o build/objective/regression_obj.o build/objective/rank_obj.o build/objective/objective.o build/objective/multiclass_obj.o build/tree/tree_model.o build/tree/updater_colmaker.o build/tree/updater_skmaker.o build/tree/updater_sync.o build/tree/updater_refresh.o build/tree/updater_histmaker.o build/tree/tree_updater.o build/tree/updater_prune.o dmlc-core/libdmlc.a rabit/lib/librabit_empty.a  -pthread -lm  -fopenmp
