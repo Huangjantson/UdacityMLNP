@@ -18534,7 +18534,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <span class="c1"># TODO: Transform the sample log-data using the PCA fit above</span>
 <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">good_data</span><span class="p">)</span>
-<span class="n">pca_samples</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">log_samples</span><span class="p">)</span>
+<span class="n">pca_samples</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">good_data</span><span class="p">)</span>
 
 <span class="c1"># Generate PCA results plot</span>
 <span class="n">pca_results</span> <span class="o">=</span> <span class="n">vs</span><span class="o">.</span><span class="n">pca_results</span><span class="p">(</span><span class="n">good_data</span><span class="p">,</span> <span class="n">pca</span><span class="p">)</span>
@@ -18922,41 +18922,12 @@ p4aRiIiIiIgEPTWMREREREQk6KlhJCIiIiIiQU8NIxERERERCXpqGImIiIiISNBTw0hERERERILe
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([ 0.44302505,  0.70681723,  0.82988103,  0.93109011,  0.97959207,  1.        ])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> The total explained variance by the first and second component is 0.70681723. The total variance of the first four components is 0.93109011. The first dimension best repersents how much the customer spend on grocery, milk and detergents_paper.This component reflects how much this customer is liked to be a retailer. The second dimension best represents how the customer spend on fresh, frozen and delicatessen. This component shows how much this customer tend to be a restaurant. The third best represents how likely the customer is tend to buy fresh while not going to buy delicatessen.It is a balancer for the fresh, frozen and delicatessen in the second component, and also shows how likely the customer is a restaurant or cafe. The fourth one best represents how likely the customer is going to buy frozen with negative weight on fresh and delicatessen. The negative weight is still for balancing I think and customers with much of this component are also tend to be restaurants.</p>
+<p><strong>Answer:</strong> The total explained variance by the first and second component is 0.6832. The total variance of the first four components is 0.9244. The first dimension best repersents how much the customer spend on grocery, milk and detergents_paper.This component reflects how much this customer is liked to be a retailer. The second dimension best represents how the customer spend on fresh, frozen and delicatessen. This component shows how much this customer tend to be a restaurant. The third best represents how likely the customer is tend to buy fresh while not going to buy delicatessen.It is a balancer for the fresh, frozen and delicatessen in the second component, and also shows how likely the customer is a restaurant or cafe. The fourth one best represents how likely the customer is going to buy frozen with negative weight on fresh and delicatessen. The negative weight is still for balancing I think and customers with much of this component are also tend to be restaurants.</p>
 
 </div>
 </div>
@@ -22704,8 +22675,7 @@ XkTEwxTkRUQ8TEFeRMTDFORFRDzs/wPlVQG/vQD8qgAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> The customers of segment 0 buy more fresh and frozen than the customers of segment 1 while they buy less milk, grocery detergents paper and delicatessen than the customers of segment 1. The customers of segment 0 have a lower average for buying all the things while customers of segment 1 buy milk, grocery and detergents paper more than the average. This seems a bit strange because both of the segments have a lower average in fresh, frozen and delicatessen than the mean in section 1, and I think the reasone might be some outliers are filtered before the PCA model is fit.</p>
-<p>Segment 0 is supposed to be a segment for customers like restaurant, cafe or some other kind of shops mainly sell food after they cooked, for the high purchased amount, compared to segment1, in fresh and frozen. Segment 1 is for the customers like retailer or market who mainly sell daily use including grocery, milk and detergents paper to their customers.</p>
+<p><strong>Answer:</strong> The customers of segment 0 buy more fresh and frozen than the customers of segment 1 while they buy less milk, grocery detergents paper and delicatessen than the customers of segment 1. Thus segment 0 is supposed to be a segment for customers like restaurant, cafe or some other kind of shops mainly sell food after they cooked, and segment 1 are for the customers like retailer or market who mainly sell daily use to their customers.</p>
 
 </div>
 </div>
@@ -23581,7 +23551,7 @@ AZIkSZLUGxYgSZIkSb1hAZIkSZLUG/8BOGi/7bRr+iwAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> The first two samples which were guessed as retailers are retailers from the plot above. And the last example which was predicted as a cafe is labeled as 'hotel/restaurant/cafe' correspondingly. Thus these classifications are still consistent with previous definition of the customer segments. However it is obvious that there is an ambiguous area at value 0 for dimension 1, and samples taken near that area might be not consistent.</p>
+<p><strong>Answer:</strong> The first two samples which were guessed as retailers are retailers from the plot above. And the last example which was predicted as a cafe is labeled as 'hotel/restaurant/cafe' correspondingly. Thus these classifications are still consistent with previous definition of the customer segments.</p>
 
 </div>
 </div>
