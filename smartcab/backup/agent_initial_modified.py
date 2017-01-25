@@ -4,8 +4,6 @@ import sys
 from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
-import numpy as np
-import pandas as pd
 
 def default_decay(t):
     return 0.9**t
@@ -161,7 +159,17 @@ class LearningAgent(Agent):
                 action=random.choice(self.valid_actions)
             else:
                 action,maxQ =  self.get_maxQ_action(state)
-                
+                #print "action and maxQ returned:{},{}".format(action,maxQ)
+                if self.testing and abs(maxQ-3.0)<1e-8:
+                    print "Here the maxQ=3.0 and in testing, need to reconsider the action"
+                    #choose action based on Q carefully when in testing,check for those with initial Q-value
+                    maxTemp = 0.0
+                    for a in self.Q[state]: 
+                        print "checking for action :{},value :{:.2f}".format(a,self.Q[state][a])
+                        if self.Q[state][a]>maxTemp and abs(self.Q[state][a]-3.0)>1e-8:
+                        #other actions with positive Q-value, then choose those one, and get the one with largest Q-value
+                            maxTemp = self.Q[state][a]
+                            action=a
         return action
 
 
@@ -233,7 +241,7 @@ def run():
     #    * alpha   - continuous value for the learning rate, default is 0.5
     #    * decayFunction - function for epsilon decaying
     #    * gamma - future reward weight
-    agent = env.create_agent(LearningAgent,learning=True, alpha=0.7, decayFunction = lambda t: 0.9**t, gamma=0 )
+    agent = env.create_agent(LearningAgent,learning=True, alpha=0.3, decayFunction = lambda t: 0.9**t, gamma=0 )
     
     ##############
     # Follow the driving agent
@@ -255,70 +263,8 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=100,tolerance=1e-40)
+    sim.run(n_test=100,tolerance=1e-80)
 
-    
-def alpha_tunning_run(alpha):
-    """ Driving function for running the simulation for alpha tunning. 
-    Press ESC to close the simulation, or [SPACE] to pause the simulation. """
-
-    ##############
-    # Create the environment
-    # Flags:
-    #   verbose     - set to True to display additional output from the simulation
-    #   num_dummies - discrete number of dummy agents in the environment, default is 100
-    #   grid_size   - discrete number of intersections (columns, rows), default is (8, 6)
-    env = Environment()
-    
-    ##############
-    # Create the driving agent
-    # Flags:
-    #   learning   - set to True to force the driving agent to use Q-learning
-    #    * alpha   - continuous value for the learning rate, default is 0.5
-    #    * decayFunction - function for epsilon decaying
-    #    * gamma - future reward weight
-    agent = env.create_agent(LearningAgent,learning=True, alpha=alpha, decayFunction = lambda t: 0.9**t, gamma=0 )
-    
-    ##############
-    # Follow the driving agent
-    # Flags:
-    #   enforce_deadline - set to True to enforce a deadline metric
-    env.set_primary_agent(agent,enforce_deadline=True)
-
-    ##############
-    # Create the simulation
-    # Flags:
-    #   update_delay - continuous time (in seconds) between actions, default is 2.0 seconds
-    #   display      - set to False to disable the GUI if PyGame is enabled
-    #   log_metrics  - set to True to log trial and simulation results to /logs
-    #   optimized    - set to True to change the default log file name
-    sim = Simulator(env,update_delay=0.0001,log_metrics=True,optimized=True,display=False)
-    
-    ##############
-    # Run the simulator
-    # Flags:
-    #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
-    #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=100,tolerance=1e-20)
-
-def alpha_tunning_main():
-    resultFileLocation = "D:\\self\\pythonNmachineLearning\\udacity-mlnd\\smartcab\\logs\\sim_improved-learning.csv"
-    alphaList = np.arange(0.1,1,0.1)
-    initial=True
-
-    for alpha in alphaList:
-        alpha_tunning_run(alpha)
-        tempResult = pd.read_csv(resultFileLocation)
-        tempResult = tempResult.ix[tempResult['testing']==True,['trial','net_reward','success']]
-        tempResult['alpha']=alpha
-        tempResult=tempResult.ix[:,['alpha','trial','net_reward','success']]
-        if initial:
-            SearchedData=tempResult
-            initial=False
-        else:
-            SearchedData=SearchedData.append(tempResult,ignore_index=True)
-
-    SearchedData.to_csv('D:\self\pythonNmachineLearning\udacity-mlnd\smartcab\logs\SearchedData.csv')
 
 if __name__ == '__main__':
     run()
