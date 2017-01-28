@@ -14,7 +14,7 @@ class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """ 
 
-    def __init__(self, env, learning=False, alpha=0.5,decayFunction=default_decay, gamma=0.1):
+    def __init__(self, env, learning=False, alpha=0.5,decayFunction=default_decay):
         super(LearningAgent, self).__init__(env)     # Set the agent in the evironment ; call its father class's __init__
         self.planner = RoutePlanner(self.env, self)  # Create a route planner
         self.valid_actions = self.env.valid_actions  # The set of valid actions
@@ -40,12 +40,14 @@ class LearningAgent(Agent):
         #         initEpsilon : the initial epsilon
         #         testing : if the agent was in testing
         
+        """
+        self.gamma=gamma
         self.previousState = None
         self.previousAction = None
         self.previousReward = None
+        """
         self.trainTrial = 0        
         self.decayFunction=decayFunction
-        self.gamma=gamma
         self.testing = False
 
     def reset(self, destination=None, testing=False):
@@ -176,6 +178,8 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
                
+        #only update the current state by the reward for not using the gamma,below is the original with gamma version
+        """
         _,maxQ = self.get_maxQ_action(state)
         
         if self.previousState is not None and not self.initial:
@@ -198,6 +202,11 @@ class LearningAgent(Agent):
         self.previousState = state
         self.previousAction= action
         self.previousReward= reward
+        """
+        
+        #a latter version of updating Q without using gamma part
+        self.Q[state][action] += self.alpha*(reward + - self.Q[state][action])   
+        
         return
 
 
@@ -233,7 +242,7 @@ def run():
     #    * alpha   - continuous value for the learning rate, default is 0.5
     #    * decayFunction - function for epsilon decaying
     #    * gamma - future reward weight
-    agent = env.create_agent(LearningAgent,learning=True, alpha=0.7, decayFunction = lambda t: 0.9**t, gamma=0 )
+    agent = env.create_agent(LearningAgent,learning=True, alpha=0.6, decayFunction = lambda t: 0.95**t )
     
     ##############
     # Follow the driving agent
@@ -277,7 +286,7 @@ def alpha_tunning_run(alpha):
     #    * alpha   - continuous value for the learning rate, default is 0.5
     #    * decayFunction - function for epsilon decaying
     #    * gamma - future reward weight
-    agent = env.create_agent(LearningAgent,learning=True, alpha=alpha, decayFunction = lambda t: 0.9**t, gamma=0 )
+    agent = env.create_agent(LearningAgent,learning=True, alpha=alpha, decayFunction = lambda t: 0.95**t)
     
     ##############
     # Follow the driving agent
