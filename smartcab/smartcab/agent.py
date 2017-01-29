@@ -162,8 +162,12 @@ class LearningAgent(Agent):
                 #choose action randomly
                 action=random.choice(self.valid_actions)
             else:
-                action,maxQ =  self.get_maxQ_action(state)
-                
+                temp=[]
+                _,maxQ =  self.get_maxQ_action(state)
+                for a in self.valid_actions:
+                    if self.Q[state][a]==maxQ:
+                        temp.append(a)
+                action=random.choice(temp)
         return action
 
 
@@ -180,32 +184,34 @@ class LearningAgent(Agent):
                
         #only update the current state by the reward for not using the gamma,below is the original with gamma version
         """
-        _,maxQ = self.get_maxQ_action(state)
+        if self.learning:
         
-        if self.previousState is not None and not self.initial:
-            #when it is the first step in a trial, not updating the Q-value for pervious state
+            _,maxQ = self.get_maxQ_action(state)
+        
+            if self.previousState is not None and not self.initial:
+                #when it is the first step in a trial, not updating the Q-value for pervious state
             
-            if self.env.verbose:
-                print "updating Q value for the previous state : {} and action :{} Q-value : {:.2f} ".\
-                format(self.previousState,self.previousAction,self.Q[self.previousState][self.previousAction])
+                if self.env.verbose:
+                    print "updating Q value for the previous state : {} and action :{} Q-value : {:.2f} ".\
+                    format(self.previousState,self.previousAction,self.Q[self.previousState][self.previousAction])
             
-            #update the previous state/action/reward to be current state/action/reward
-            self.Q[self.previousState][self.previousAction] += self.alpha*(self.previousReward +\
-            self.gamma*maxQ - self.Q[self.previousState][self.previousAction])       
+                #update the previous state/action/reward to be current state/action/reward
+                self.Q[self.previousState][self.previousAction] += self.alpha*(self.previousReward +\
+                self.gamma*maxQ - self.Q[self.previousState][self.previousAction])       
             
             
-            if self.env.verbose:
-                print "updated Q value for the previous state : {} and action :{} Q-value : {:.2f} ".\
-                format(self.previousState,self.previousAction,self.Q[self.previousState][self.previousAction]) 
+                if self.env.verbose:
+                    print "updated Q value for the previous state : {} and action :{} Q-value : {:.2f} ".\
+                    format(self.previousState,self.previousAction,self.Q[self.previousState][self.previousAction]) 
        
-        self.initial=False
-        self.previousState = state
-        self.previousAction= action
-        self.previousReward= reward
+            self.initial=False
+            self.previousState = state
+            self.previousAction= action
+            self.previousReward= reward
         """
-        
-        #a latter version of updating Q without using gamma part
-        self.Q[state][action] += self.alpha*(reward + - self.Q[state][action])   
+        if self.learning:
+            #a latter version of updating Q without using gamma part
+            self.Q[state][action] += self.alpha*(reward + - self.Q[state][action])   
         
         return
 

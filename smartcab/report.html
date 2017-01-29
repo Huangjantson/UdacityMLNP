@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import the visualization code</span>
@@ -13171,9 +13171,9 @@ OojqUXcAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer</strong></p>
-<p>There are three possible values for the feature 'way_point'. And for the features</p>
-<p>For chosen features 'left','oncoming' and 'waypoint', all of then have 4 possible values including 'None'. The feature 'light' has 2 possible values.</p>
+<p>For chosen features 'left','oncoming' and 'waypoint', all of them have 4 possible values, including three directions for other agents and 'None' for no other agents. The feature 'light' has 2 possible values includng 'red' and 'green'.</p>
 <p>Then the size of the state space would be <tr>4\*4\*4\*2=128</tr>.</p>
+<p>If the agent is gonna be trained for only 20 trials with approximately about 30 steps for each trial, then I suppose the training part is not enough. Thus the parameter tolerance must be tunned so the agent can be trained for more times. Given enought training, the state space with size 128 would be reasonable.</p>
 
 </div>
 </div>
@@ -19080,13 +19080,13 @@ JA3IkCVJkiRJA/oLLbkIaC2H1l0AAAAASUVORK5CYII=
  -- right : 0.00
  -- None : 0.00
  -- left : 0.00</p>
-<p>During the training the cab had never tried going to the right, thus the rewards for 'left' are still the initial value 0.00. Thus, in this case the agent will choose the suboptimal policy instead of taking chance to choose the optimal policy.</p>
+<p>During the training the cab had never tried going to the right, thus the rewards for 'right' are still the initial value 0.00. Thus, in this case the agent will choose the suboptimal policy instead of taking chance to choose the optimal policy.</p>
 <p>This could be solved by adding more training trials which gives the agent a chance to make random exploring. However in the real world there is alway a possibility for the agent to meet with new situations, and using a table to represent the states will still cause such a problem._(:3」∠)_</p>
-<p>('right', 'green', 'right', 'forward')
- -- forward : 0.49
- -- right : 1.44
- -- None : 0.00
- -- left : -12.38</p>
+<p>('left', 'red', None, 'forward')
+ -- forward : -23.51
+ -- right : -18.45
+ -- None : 1.88
+ -- left : -24.60</p>
 <p>This is an example for the state which all the actions had been tried. It is clear that in such case the agent will choose the best option 'None' with the highest Q-value.</p>
 
 </div>
