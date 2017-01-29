@@ -13171,9 +13171,9 @@ OojqUXcAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer</strong></p>
-<p>For chosen features 'left','oncoming' and 'waypoint', all of them have 4 possible values, including three directions for other agents and 'None' for no other agents. The feature 'light' has 2 possible values includng 'red' and 'green'.</p>
-<p>Then the size of the state space would be <tr>4\*4\*4\*2=128</tr>.</p>
-<p>If the agent is gonna be trained for only 20 trials with approximately about 30 steps for each trial, then I suppose the training part is not enough. Thus the parameter tolerance must be tunned so the agent can be trained for more times. Given enought training, the state space with size 128 would be reasonable.</p>
+<p>For the feature 'waypoint', it has 3 possible values.For the features 'left' and 'oncoming', both of them have 4 possible values, including three directions for other agents and 'None' for no other agents. The feature 'light' has 2 possible values includng 'red' and 'green'.</p>
+<p>Thus the size of the state space would be <tr>3\*4\*4\*2=96</tr>.</p>
+<p>If the agent is gonna be trained for only 20 trials with approximately about 30 steps for each trial, then I suppose the training part is not enough. Thus the parameter tolerance must be tunned so the agent can be trained for more times. Given enought training, the state space with size 96 would be reasonable.</p>
 
 </div>
 </div>
@@ -14518,7 +14518,7 @@ $$ \epsilon = a^t, \textrm{for } 0 < a < 1 \hspace{50px}\epsilon = \frac{1}{t^2}
 <pre><code>                   N~a/(1-a)*step/4
 
 </code></pre>
-<p>With N=128 and step&gt;=20 or step~30, we have a~512/542~0.945, thus a=0.95 is enough for it to search all over the state space four times. Thus the decaying function used is epsilon=0.9^t, which gives a relative smooth decay for the epsilon so there is a long term for the agent to explore the whole state space. And after some turns the epsilon will decay towards 0 so the agent is fianlly acting/learning on its policy to reach the optimal policy.</p>
+<p>With N=128 and step&gt;=20 or step~30, we have a~384/414~0.928, thus a=0.95 is enough for it to search all over the state space four times. Thus the decaying function used is epsilon=0.9^t, which gives a relative smooth decay for the epsilon so there is a long term for the agent to explore the whole state space. And after some turns the epsilon will decay towards 0 so the agent is fianlly acting/learning on its policy to reach the optimal policy.</p>
 <p>And for a longer term for it to converge, the exit condition for the tolerance is set to a rather small value as 1e-40, which gives the agent to run about 900 times.</p>
 <p>Here records the set of parameters used in this test:{alpha=0.5,tolerance=1e-40,decayFunction=lambda t: 0.95**t,gamma=0}</p>
 <p>Firstly, 10 testing trials was taken. And for a more stable and clear result, 100 testing trials was taken.</p>
