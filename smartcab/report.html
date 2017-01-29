@@ -14518,7 +14518,7 @@ $$ \epsilon = a^t, \textrm{for } 0 < a < 1 \hspace{50px}\epsilon = \frac{1}{t^2}
 <pre><code>                   N~a/(1-a)*step/4
 
 </code></pre>
-<p>With N=128 and step&gt;=20 or step~30, we have a~384/414~0.928, thus a=0.95 is enough for it to search all over the state space four times. Thus the decaying function used is epsilon=0.9^t, which gives a relative smooth decay for the epsilon so there is a long term for the agent to explore the whole state space. And after some turns the epsilon will decay towards 0 so the agent is fianlly acting/learning on its policy to reach the optimal policy.</p>
+<p>With N=96 and step&gt;=20 or step~30, we have a~384/414~0.928, thus a=0.95 is enough for it to search all over the state space four times. Thus the decaying function used is epsilon=0.9^t, which gives a relative smooth decay for the epsilon so there is a long term for the agent to explore the whole state space. And after some turns the epsilon will decay towards 0 so the agent is fianlly acting/learning on its policy to reach the optimal policy.</p>
 <p>And for a longer term for it to converge, the exit condition for the tolerance is set to a rather small value as 1e-40, which gives the agent to run about 900 times.</p>
 <p>Here records the set of parameters used in this test:{alpha=0.5,tolerance=1e-40,decayFunction=lambda t: 0.95**t,gamma=0}</p>
 <p>Firstly, 10 testing trials was taken. And for a more stable and clear result, 100 testing trials was taken.</p>
